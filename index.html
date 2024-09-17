@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Report: VF Status Up vs. PF Status Down</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 10px;
+            min-height: 50px;
+            border-bottom: #ddd 3px solid;
+        }
+        header h1 {
+            text-align: center;
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+        section {
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Issue Report: VF Status Up vs. PF Status Down</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Issue Summary</h2>
+            <p><strong>Title:</strong> VF Status Up is Different than PF Status Down</p>
+            <p><strong>Description:</strong> There is a discrepancy where a Virtual Function (VF) shows as "Up" while its Parent Function (PF) is indicated as "Down." This inconsistency may impact network performance and virtualization functionality.</p>
+        </section>
+
+        <section>
+            <h2>Hardware Configuration</h2>
+            <ul>
+                <li><strong>Hardware Model:</strong> Dell PowerEdge R740</li>
+                <li><strong>Network Adapter:</strong> Intel X710-DA2</li>
+                <li><strong>Number of Network Interfaces:</strong> 4 (each supporting SR-IOV)</li>
+                <li><strong>Memory:</strong> 64 GB RAM</li>
+                <li><strong>CPU:</strong> Intel Xeon Gold 6230 (2x)</li>
+                <li><strong>Firmware Version:</strong> 2.5.0</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Software Configuration</h2>
+            <ul>
+                <li><strong>Operating System:</strong> Ubuntu 22.04 LTS</li>
+                <li><strong>Kernel Version:</strong> 5.15.0-67-generic</li>
+                <li><strong>Network Driver Version:</strong> ixgbe 5.10.0</li>
+                <li><strong>SR-IOV Configuration:</strong>
+                    <ul>
+                        <li>PFs: 2</li>
+                        <li>VFs per PF: 8</li>
+                    </ul>
+                </li>
+                <li><strong>Network Configuration Tool:</strong> <code>iproute2 5.15.0</code></li>
+                <li><strong>Virtualization Software:</strong> KVM 7.8.0</li>
+                <li><strong>Network Management:</strong> <code>netplan 0.105</code></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Steps to Reproduce</h2>
+            <ol>
+                <li>Enable SR-IOV on the network adapter.</li>
+                <li>Configure the network adapter to allocate VFs.</li>
+                <li>Check the PF status with <code>ip link show &lt;pf_interface&gt;</code>.</li>
+                <li>Verify the VF status with <code>ip link show &lt;vf_interface&gt;</code>.</li>
+                <li>Set up a VM with one of the VFs.</li>
+                <li>Assign an IP address to the VM.</li>
+                <li>Reboot the host system.</li>
+                <li>Re-check the PF and VF statuses.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Expected Result</h2>
+            <p>The status of both the PF and its associated VFs should be consistent. If the PF is "Down," all VFs associated with it should also be "Down." Conversely, if the PF is "Up," all VFs should also be "Up."</p>
+        </section>
+
+        <section>
+            <h2>Actual Result</h2>
+            <p>The PF is reported as "Down," but at least one VF is incorrectly reported as "Up."</p>
+        </section>
+    </div>
+</body>
+</html>
