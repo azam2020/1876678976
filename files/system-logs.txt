@@ -1,0 +1,10 @@
+2024-10-04T14:23:21.122345Z 10 [Note] Aborted connection 10 to db: 'test_db' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2024-10-04T14:23:24.345678Z 8 [Warning] IP address '192.168.1.100' has been resolved to the host name 'unknown', which differs from the reverse lookup.
+2024-10-04T14:23:29.567890Z 15 [Note] Access denied for user 'invalid_user'@'localhost' (using password: YES)
+2024-10-04T14:23:34.789012Z 12 [Note] Aborted connection 12 to db: 'prod_db' user: 'root' host: 'localhost' (Query execution was interrupted)
+2024-10-04T14:23:45.123456Z 5 [Note] Start replication for 'test_slave'
+2024-10-04T14:23:50.678901Z 11 [Note] InnoDB: Buffer pool(s) load completed at 2024-10-04T14:23:50.678901
+2024-10-04T14:24:01.789012Z 14 [Note] End replication for 'prod_slave'
+2024-10-04T14:24:15.345678Z 9 [Warning] Connection attempt for user 'test_user'@'192.168.1.5' failed due to invalid credentials
+2024-10-04T14:24:26.123456Z 7 [Error] Cannot initialize 'innodb_buffer_pool' for table 'user_data'
+2024-10-04T14:24:39.345678Z 13 [Note] Table 'users' was locked by connection 13
