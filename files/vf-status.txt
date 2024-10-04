@@ -1,0 +1,10 @@
+Oct  4 14:15:23 hostname kernel: [11123.456789] device eth0 entered promiscuous mode
+Oct  4 14:16:05 hostname kernel: [11155.123456] eth0: link is up
+Oct  4 14:16:12 hostname kernel: [11162.234567] eth0: link is down
+Oct  4 14:16:15 hostname kernel: [11165.567890] eth0: link is up
+Oct  4 14:16:27 hostname kernel: [11177.678901] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Oct  4 14:17:05 hostname kernel: [11205.456789] perf: interrupt took too long (2500 > 2495), lowering kernel.perf_event_max_sample_rate to 50000
+Oct  4 14:17:12 hostname kernel: [11212.789012] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+Oct  4 14:17:40 hostname kernel: [11240.456789] TCP: request_sock_TCP: Possible SYN flooding on port 22. Sending cookies.  Check SNMP counters.
+Oct  4 14:18:01 hostname kernel: [11261.678901] device eth0 left promiscuous mode
+Oct  4 14:18:34 hostname kernel: [11294.123456] net_ratelimit: 3 callbacks suppressed
